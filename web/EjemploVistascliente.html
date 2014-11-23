@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>E-SOLSA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <link href="./STL/SOLSA.css" rel='stylesheet' type='text/css'/>
+        
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+    
+        <script>
+        window.onload=
+        window.onresize=function(){
+                var tamano=window.innerHeight;
+                var ancho=window.innerWidth;
+                var bar=Math.floor((ancho-200)*0.5);
+                document.getElementById("HSearch").setAttribute("style","width:"+(ancho-200)+"px;");
+                document.getElementById("SearchCon").setAttribute("style","width:"+(bar)+"px;");
+                document.getElementById("SBar").setAttribute("style","width:"+(bar-50)+"px;");
+                document.getElementById("NavBar").setAttribute("style","height:"+(tamano-80)+"px;");
+                document.getElementById("Content").setAttribute("style","width:"+(ancho-220)+"px;");
+                document.getElementById("costo").innerHTML=ancho;
+    };
+        </script>
+        <script>
+            var container = [];
+            function ampliarOpcion(opcion){
+                if(container[opcion]==undefined){
+                    container[opcion]=1;
+                    document.getElementById(opcion).setAttribute("style","");
+                    document.getElementById("opc"+opcion).setAttribute("src","./IMG/Ocultar.png");
+                    document.getElementById("opc"+opcion).setAttribute("style","width:18px");
+                }else{
+                    if(container[opcion]==0){
+                        container[opcion]=1;
+                        document.getElementById(opcion).setAttribute("style","");
+                        document.getElementById("opc"+opcion).setAttribute("src","./IMG/Ocultar.png");
+                        document.getElementById("opc"+opcion).setAttribute("style","width:18px");
+                    }else{
+                        container[opcion]=0;
+                        document.getElementById(opcion).setAttribute("style","display:none;");
+                        document.getElementById("opc"+opcion).setAttribute("src","./IMG/Mostrar.png");
+                        document.getElementById("opc"+opcion).setAttribute("style","width:10px");
+                    }
+                }
+                
+            }
+        </script>
+    </head>
+    <body style="margin: 0px;">
+        <div id="Header" class="Header">
+            <a href="./index.jsp">
+                <div id="Hlogo" class="Header Container">
+                    <div id="Logo">
+                        <img src="./IMG/SOLSA.png" style="height: 80px;"/>
+                    </div>
+                </div>
+            </a>
+            <div id="HSearch" class="Header Container">
+                <div id="Search">
+                    <div id="SearchCon">
+                        <form>
+                            <input id="SBar" class="Search Bar" type="text" placeholder="Buscar Productos"/>
+                            <input type="image" src="./IMG/Search.png" style="height: 25px;position: relative;top: 3px;"/>
+                        </form>
+                    </div>
+                    <a href="./buspref.jsp" style="font-size: 12px;">B&uacute;squeda Avanzada</a>
+                </div>
+            </div>
+            <a href="./carrito.jsp">
+                <div id="HCar" class="Header Container">
+                    <div id="Car">
+                        <img src="./IMG/Cart.png" style="height: 40px;"/>
+                        <div id="costo" style="color: black;">
+                        &dollar; 0.00
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="Middle">
+            <div id="NavBar">
+                <a href="./sesion.jsp">
+                <div class="Opcion" style="height: 40px;display: table;">
+                    <div style="display: table-cell;width: 50px;vertical-align: middle;">
+                        <img src="./IMG/SOLSA.png" style="width: 50px;"/>
+                    </div>
+                    <div style="display: table-cell;position: relative;width: 150px;vertical-align: middle;text-align: center;color: black;">
+                        Usuario SOLSA
+                    </div>
+                </div>
+                </a>
+                <div class="Opcion Multiple" onclick="ampliarOpcion('Usuarios')">
+                    <div style="width: 20px;float: left;">
+                        <img id="opcUsuarios" src="./IMG/Mostrar.png" style="width: 10px;"/>
+                    </div>
+                    <div style="width: 165px;float: left;margin-left: 5px;">
+                        Usuarios
+                    </div>
+                </div>
+                <div id="Usuarios" style="display: none;">
+                    <div id="BuscOpc" class="Opcion">
+                        <form>
+                            <input id="BuscOpcBar" type="text" style="" placeholder="B&uacute;squeda"/>
+                            <input type="image" src="./IMG/Search.png" style="height: 20px;position: relative;top: 0px;"/>
+                        </form>
+                    </div>
+                    <div style="text-align: center;">
+                     <a href="./busprefusr.jsp" style="font-size: 12px;">B&uacute;squeda Avanzada</a>
+                    </div>
+                    <div class="Opcion Sub">
+                        <span>Administrar</span>
+                    </div>
+                    <div class="Opcion Sub">
+                        <span>Registrar</span>
+                    </div>
+                </div>
+                <div class="Opcion Multiple" onclick="ampliarOpcion('Productos')">
+                    <div style="width: 20px;float: left;">
+                        <img id="opcProductos" src="./IMG/Mostrar.png" style="width: 10px;"/>
+                    </div>
+                    <div style="width: 165px;float: left;margin-left: 5px;">
+                        Productos
+                    </div>
+                </div>
+                <div id="Productos" style="display: none;">
+                    <div id="BuscOpc" class="Opcion">
+                        <form>
+                            <input id="BuscOpcBar" type="text" style="" placeholder="B&uacute;squeda"/>
+                            <input type="image" src="./IMG/Search.png" style="height: 20px;position: relative;top: 0px;"/>
+                        </form>
+                    </div>
+                    <div style="text-align: center;">
+                     <a href="./busprefprod.jsp" style="font-size: 12px;">B&uacute;squeda Avanzada</a>
+                    </div>
+                    <div class="Opcion Sub">
+                        <span>Administrar</span>
+                    </div>
+                    <div class="Opcion Sub">
+                        <span>Registrar</span>
+                    </div>
+                </div>
+                <div class="Opcion Multiple" onclick="ampliarOpcion('Contenidos')">
+                    <div style="width: 20px;float: left;">
+                        <img id="opcContenidos" src="./IMG/Mostrar.png" style="width: 10px;"/>
+                    </div>
+                    <div style="width: 165px;float: left;margin-left: 5px;">
+                        Tipos de Contenido
+                    </div>
+                </div>
+                <div id="Contenidos" style="display: none;">
+                    <div class="Opcion Sub">
+                        <span>Ejemplos</span>
+                    </div>
+                    <div class="Opcion Sub">
+                        <a href="./index.jsp"><span>Contenido con Imagen</span></a>
+                    </div>
+                    <div class="Opcion Sub">
+                        <a href="./tabla.jsp"><span>Contenido sin Imagen</span></a>
+                    </div>
+                    <div class="Opcion Sub">
+                        <a href="./formulario.jsp"><span>Formulario</span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="Content">
+                <div id="TituloG">
+                    Productos
+                </div>
+                <div id="List">
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Elemento" style="display: table;">
+                        <div style="display: table-row;">
+                            <div class="TituloE">
+                                <a href="./producto.jsp?id=0" style="text-decoration: none;color: black;">Laptop</a>
+                            </div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="CeldaCent">
+                                <div style="display: table;width: 100%;">
+                                    <div style="display: table-row;">
+                                        <div class="CeldaCent" style="width: 50%;height: 110px;">
+                                            <a href="./producto.jsp?id=0">
+                                            <img src="./IMG/HP.jpg" style="height: 100px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="CeldaCent" style="width: 50%;">
+                                            <div style="display: table;width: 100%;">
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: bottom;height: 85px;">
+                                                        <input type="text" value="1" id="Canti-1" style="width: 25px;height: 15px;border: 1px solid rgb(111,111,111);border-radius: 2px;"> Piezas
+                                                    </div>
+                                                </div>
+                                                <div style="display: table-row;">
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <div style="margin: 0 auto;">
+                                                            &dollar; 20,000.00
+                                                        </div>
+                                                    </div>
+                                                    <div style="display: table-cell;vertical-align: middle;height: 45px;font-size: 12px;">
+                                                        <a href="./comprar.jsp">
+                                                        <div style="background-color:orange;width:40px;height:40px;border-radius:20px;margin: 0 auto;box-shadow: 0px 0px 3px rgb(75,75,75);">
+                                                            <img src="./IMG/Bolsa.png" style="position: relative;top: 5px;left: 0.5px;width:25px;height:25px;"/>
+                                                        </div>
+                                                        </a>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <footer id="Footer">
+                    &REG;2014 Repre Smash
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

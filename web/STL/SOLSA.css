@@ -1,0 +1,238 @@
+body{
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    min-width: 1024px;
+}
+.Header{
+    font-family: 'Open Sans', sans-serif;
+}
+.Header.Container{
+    display: table;
+    float: left;
+}
+#Header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 80px;
+    width: 100%;
+
+    overflow: hidden;
+    z-index: 2;
+    
+    background-color: rgba(150,150,150,0.98);
+    border-bottom: 2px solid rgb(111,111,111);
+    box-shadow: 0px -2px 10px rgb(75,75,75);
+}
+#Hlogo{
+    width: 100px;
+    height: 80px;
+    text-align: center;
+}
+#HSearch{
+    height: 80px;   
+    text-align: center;
+}
+#HCar{
+    width: 70px;
+    height: 85px;   
+    text-align: center;
+    float: right;
+}
+#HCar:hover{
+    box-shadow: 0px -2px 10px rgb(75,75,75);
+}
+#Logo{
+    display: table-cell;
+    vertical-align: middle;
+}
+#Search{
+    display: table-cell;
+    vertical-align: middle;
+}
+#Car{
+    display: table-cell;
+    vertical-align: middle;
+}
+#SearchCon{
+    margin: 0 auto;
+    background-color: rgb(255,255,255);
+    box-shadow: 0px 0px 5px rgb(75,75,75);
+}
+.Search{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+.Search.Bar{
+    height: 25px;
+    position: relative;
+    top: -1px;
+    border: none;
+}
+#Middle{
+    position: relative;
+    top: 80px;
+    width: 100%;
+}
+#NavBar{
+    background-color: rgba(240,240,240,0.98);
+    width: 200px;
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    overflow: auto;
+    z-index: 1;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+div.Opcion{
+    width: 190px;
+    height: 20px;
+    
+    cursor: pointer;
+    padding: 5px;
+    text-align: left;
+}
+.Opcion:hover{
+    background-color: rgb(150,150,150);
+}
+.Opcion.Sub{
+    font-size: 13px;
+    text-align: center;
+}
+#BuscOpc{
+    background-color: white;
+    box-shadow: 0px 0px 5px rgb(75,75,75);
+    text-align: center;
+}
+#BuscOpcBar{
+    height: 20px;
+    width: 140px;
+    position: relative;
+    top: -4px;
+    font-size: 15px;
+    border: none;
+}
+#Content{
+    position: relative;
+    z-index: 0;
+    left: 200px;
+}
+#List{
+    width: 100%;
+    min-width: 824px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+.Elemento{
+    width: 32%;
+    height: 130px;
+    margin: 0.5%;
+    float: left;
+    border: 1px solid rgb(240,240,240);
+    font-size: 14px;
+    color: black;
+}
+.Elemento:hover{
+    box-shadow: 0px 0px 5px rgb(75,75,75);
+}
+.Lista:hover{
+    background-color: rgb(240,240,240);
+}
+#Footer{
+    position: relative;
+    
+    height: 30px;
+    width: 100%;
+    min-width: 824px;
+    
+    border-top: 2px solid rgb(150,150,150);
+    background-color: rgba(240,240,240,0.98);
+    color: rgb(180,180,180);
+    text-align: right;
+}
+.TituloE{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 20px;
+    font-size: 16px;
+    
+    border-bottom: 1px solid rgb(150,150,150);
+}
+#TituloG{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 auto;
+    border-bottom: 2px solid rgb(111,111,111);
+    margin-bottom: 2px;
+    min-width: 824px;
+}
+.CeldaCent{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.Cantidad{
+    width: 25px;
+    height: 15px;
+    border: 1px solid rgb(111,111,111);
+    border-radius:3px;
+}
+.Compra{
+    background-color:orange;
+    width:40px;
+    height:40px;
+    border-radius:20px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 3px rgb(75,75,75);  
+}
+.Cell{
+    display: table-cell;
+    border-bottom: 2px solid rgb(240,240,240);
+    vertical-align: middle;
+    text-align: center;
+}
+.Cell.Head{
+    font-size: 16px;
+}
+.RowOpc:hover{
+    background-color: rgb(180,180,180);
+}
+#Log{
+    width:100%;
+    display: table-cell;
+    
+    vertical-align: middle;
+    
+    margin: 0 auto;
+}
+#Input{
+    height: 25px;
+    border: 1px solid rgb(111,111,111);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+#Button{
+    height: 25px;
+    background-color: rgb(26,143,215);
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    box-shadow: 0px 0px 5px rgb(111,111,111);
+}
+#ButAlt{
+    height: 25px;
+    background-color: rgb(255,201,14);
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    box-shadow: 0px 0px 5px rgb(111,111,111);
+}
+#SubOpt{
+    text-decoration: none;
+    color: black;
+}
