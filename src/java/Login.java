@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
         if(con!=null){
             
             try{
-                PreparedStatement query=con.prepareStatement("SELECT id,nombre,apellido,tipo FROM usuario WHERE username=SHA2( ? ,256) AND password=SHA2( ? ,256);");
+                PreparedStatement query=con.prepareStatement("SELECT id,nombre,apellido,tipo FROM usuario WHERE username=? AND password=?;");
                 query.setString(1, username);
                 query.setString(2, password);
                 
