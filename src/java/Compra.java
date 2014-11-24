@@ -1,4 +1,5 @@
 
+import com.model.Producto;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;

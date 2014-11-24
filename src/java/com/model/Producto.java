@@ -1,3 +1,5 @@
+package com.model;
+
 
 import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,10 @@ public class Producto {
         this.descripcion=descripcion;
         this.imagen=imagen;
         this.cantidad=cantidad;
+    }
+
+    public Producto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void setid(int id){
