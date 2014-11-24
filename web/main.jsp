@@ -65,6 +65,28 @@
                 
             }
         </script>
+        
+        <script>
+            
+
+            function addField(){
+            var productid = [];
+            var products = [];
+                <c:if test="${requestScope.modificacion == 1}">
+                    <c:forEach items="${requestScope.productos}" var="i">
+                        productid.push('${i.id}');
+                        products.push('${i.nombre}');
+                    </c:forEach>
+                </c:if>
+                var newdiv = document.createElement('div');
+                var d;
+                for(var i=0;i<productid.length;i++){
+                    d+= "<option value='" + productid[i] + "'>" + products[i] + "</option>";
+                }
+                newdiv.innerHTML ="<input type='hidden' name='id[]' value='0'/>"+ "<select name='producto[]'><option value='0'></option>" + d + "</select>" + "Cantidad:<input type='text' name='cantidad[]' value='0'/><br/>";
+                document.getElementById("ModificarVenta").appendChild(newdiv);
+            }
+        </script>
     </head>
     <body style="margin: 0px;">
         <div id="Header" class="Header">
@@ -167,7 +189,155 @@
                     
                 </div>
                 <div id="List">
-                     
+                                         <c:if test="${requestScope.modificacion == 1}">
+                        
+                        <form action="./modificarSal" method="POST">
+                            <input type="hidden" name="mod" value="${requestScope.venta.id}"/>
+                            <c:forEach var="j" items="${requestScope.venta.productos}">
+                            <input type="hidden" name="id[]" value="${j.id}"/>
+                            <select name="producto[]">
+                                <option value="0">
+                                    
+                                </option>
+                                <c:forEach items="${requestScope.productos}" var="i">
+                                    <c:set var="contains" value="false" />
+                                          <c:if test="${j.id eq i.id}">
+                                            <c:set var="contains" value="true" />
+                                          </c:if>
+                                    <c:choose>
+                                        <c:when test="${contains}">
+                                            <option selected="selected" value="${i.id}">
+                                                ${i.nombre}
+                                            </option>
+                                            <c:set var="contains" value="false" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${i.id}">
+                                                ${i.nombre}
+                                            </option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                        
+                                </c:forEach>
+                            </select>
+                            Cantidad:<input type="text" name="cantidad[]" value="${j.cantidad}"/><br/>
+                            </c:forEach>
+                            <div id="ModificarVenta"></div>
+                            <a href="javascript:" id="agregarCampo" onclick="addField();">Agregar</a><br/>
+                            <input type="submit" value="Modificar"/>
+                        </form>
+                    </c:if>
+                    <c:if test="${requestScope.busquedaAvanzada == 1}">
+                        <form action="./searchAdvSales" method="POST">
+                            Cliente:<input type="text" name="bcliente"/><br/>
+                            Usuario:<input type="text" name="busuario"/><br/>
+                            Vendedor:<input type="text" name="bvendedor"/><br/>
+                            Producto:<input type="text" name="bproducto"/><br/>
+                            <input type="radio" checked="checked" name="type" value="0"/>OR
+                            <input type="radio" name="type" value="1"/>AND
+                            <input type="submit" value="Buscar"/>
+                        </form>
+                    </c:if>
+                    <c:if test="${requestScope.realizoConsulta == 1}">
+                        <table class="full">
+                            <tr class="full">
+                                <td class="full">
+                                    ID
+                                </td>
+                                <td class="full">
+                                    Estado
+                                </td>
+                                <td class="full">
+                                    Fecha de inicio
+                                </td>
+                                <td class="full">
+                                    Fecha de entrega
+                                </td>
+                                <td class="full">
+                                    Cliente
+                                </td>
+                                <td class="full">
+                                    Usuario
+                                </td>
+                                <td class="full">
+                                    Vendedor
+                                </td>
+                                <td class="full">
+                                    Productos
+                                </td>
+                                    <c:choose>
+                                        <c:when test="${requestScope.noEdit == 1}">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td class="full">
+                                                Opciones
+                                            </td>
+                                        </c:otherwise>
+                                    </c:choose>
+                            </tr>
+                           <c:forEach items="${requestScope.listaVentas}" var="i">
+                               <tr class="full">
+                                <td class="full">
+                                    ${i.id}
+                                </td>
+                                <td class="full">
+                                        <c:choose>
+                                            <c:when test="${i.estado == 0}">Por Aprobar</c:when>
+                                            <c:when test="${i.estado == 1}">Aprobada</c:when>
+                                            <c:when test="${i.estado == 2}">Rechazada</c:when>
+                                            <c:when test="${i.estado == 3}">Procesada</c:when>
+                                            <c:when test="${i.estado == 4}">Cancelada</c:when>
+                                            <c:when test="${i.estado == 5}">Enviada</c:when>
+                                            <c:when test="${i.estado == 6}">Recibida</c:when>
+                                            <c:otherwise>Desconocido</c:otherwise>
+                                        </c:choose>
+                                </td>
+                                <td class="full">
+                                    ${i.fecha_inicio}
+                                </td>
+                                <td class="full">
+                                    ${i.fecha_entrega}
+                                </td>
+                                <td class="full">
+                                    ${i.cliente.nombre}
+                                </td>
+                                <td class="full">
+                                    ${i.usuario.nombre}
+                                </td>
+                                <td class="full">
+                                    ${i.vendedor.nombre}
+                                </td>
+                                <td class="full">
+                                    <c:forEach items="${i.productos}" var="j">
+                                        #${j.cantidad} - ${j.nombre}<br/>
+                                    </c:forEach>
+                                </td>
+                                
+                                    <c:choose>
+                                        <c:when test="${requestScope.noEdit == 1}">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td class="full">
+                                                <form action="./aproSal" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Aprobar</a>
+                                                </form>
+                                                <form action="./cancelSal" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Rechazar</a>
+                                                </form>
+                                                <form action="./modSal" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Modificar</a>
+                                                </form>
+                                            </td>
+                                        </c:otherwise>
+                                    </c:choose>
+                                
+                               </tr>
+                           </c:forEach> 
+                        </table>
+                    </c:if>
                 </div>
             </div>
         </div>

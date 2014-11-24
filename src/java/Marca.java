@@ -1,4 +1,5 @@
 
+import com.model.Cliente;
 import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,16 +1,45 @@
+package com.model;
 
-import com.model.Categoria;
+
 import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 
-public class Subcategoria extends Categoria {
+public class Cliente {
+    private int id;
+    private String nombre,logo;
     
-    public Subcategoria(int id,String nombre){
-        super(id,nombre);
+    public Cliente(int id,String nombre,String logo){
+        this.id=id;
+        this.nombre=nombre;
+        this.logo=logo;
     }
     
-    @Override
-    public Subcategoria registrar(){
+    public Cliente(int id,String nombre){
+        this.id=id;
+        this.nombre=nombre;
+    }
+    
+    public void setid(int id){
+        this.id=id;
+    }
+    public void setnombre(String nombre){
+        this.nombre=nombre;
+    }
+    public void setlogo(String logo){
+        this.logo=logo;
+    }
+    
+    public int getid(){
+        return id;
+    }
+    public String getnombre(){
+        return nombre;
+    }
+    public String getlogo(){
+        return logo;
+    }
+    
+    public Cliente registrar(){
         return this;
     }
     
@@ -19,7 +48,7 @@ public class Subcategoria extends Categoria {
         return eliminado;
     }
     
-    public static boolean modificar(int id,Subcategoria subcatmod){
+    public static boolean modificar(int id, Cliente climod){
         boolean eliminado=false;
         return eliminado;
     }
@@ -34,7 +63,7 @@ public class Subcategoria extends Categoria {
         return elementos;
     }
     
-    public HttpServletRequest verProductos(Integer ini){
+    public HttpServletRequest verUsuarios(Integer ini){
         HttpServletRequest elementos=null;
         return elementos;
     }
@@ -48,4 +77,5 @@ public class Subcategoria extends Categoria {
         ResultSet resultado=null;
         return resultado;
     }
+    
 }

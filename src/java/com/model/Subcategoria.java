@@ -1,28 +1,18 @@
+package com.model;
 
-import com.model.Usuario;
-import com.model.Compra;
-import com.model.Cliente;
-import com.model.Producto;
+
+import com.model.Categoria;
 import java.sql.ResultSet;
-import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
 
-public class Orden extends Compra{
-    private Usuario trabajador;
-    public Orden(int id,int estado,String fecha_inicio,String fecha_entrega,LinkedList<Producto> productos,Cliente cliente,Usuario usuario,Usuario trabajador){
-        super(id,estado,fecha_inicio,fecha_entrega,productos,cliente,usuario);
-        this.trabajador=trabajador;
+public class Subcategoria extends Categoria {
+    
+    public Subcategoria(int id,String nombre){
+        super(id,nombre);
     }
     
-    public void settrabajador(Usuario trabajador){
-        this.trabajador=trabajador;
-    }
-    
-    public Usuario gettrabajador(){
-        return trabajador;
-    }
-    
-    public Orden registrar(){
+    @Override
+    public Subcategoria registrar(){
         return this;
     }
     
@@ -31,7 +21,7 @@ public class Orden extends Compra{
         return eliminado;
     }
     
-    public static boolean modificar(int id,Orden ordmod){
+    public static boolean modificar(int id,Subcategoria subcatmod){
         boolean eliminado=false;
         return eliminado;
     }

@@ -1,3 +1,5 @@
+package com.model;
+
 import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 

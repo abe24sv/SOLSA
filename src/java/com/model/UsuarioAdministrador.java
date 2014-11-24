@@ -1,3 +1,5 @@
+package com.model;
+
 
 import Interfaz.Opcion;
 import Interfaz.DivLateral;

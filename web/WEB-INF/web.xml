@@ -8,6 +8,58 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListSalAll</servlet-name>
+        <servlet-class>ListSalAll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSalDate</servlet-name>
+        <servlet-class>ListSalDate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSalCli</servlet-name>
+        <servlet-class>ListSalCli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>searchSales</servlet-name>
+        <servlet-class>searchSales</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>searchAdvSales</servlet-name>
+        <servlet-class>searchAdvSales</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>advsearchSales</servlet-name>
+        <servlet-class>advsearchSales</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSalApro</servlet-name>
+        <servlet-class>ListSalApro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSalCancel</servlet-name>
+        <servlet-class>ListSalCancel</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>aproSal</servlet-name>
+        <servlet-class>aproSal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cancelSal</servlet-name>
+        <servlet-class>cancelSal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modSal</servlet-name>
+        <servlet-class>modSal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarSal</servlet-name>
+        <servlet-class>modificarSal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSalProd</servlet-name>
+        <servlet-class>ListSalProd</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -15,6 +67,58 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSalAll</servlet-name>
+        <url-pattern>/ListSalAll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSalDate</servlet-name>
+        <url-pattern>/ListSalDate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSalCli</servlet-name>
+        <url-pattern>/ListSalCli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchSales</servlet-name>
+        <url-pattern>/searchSales</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchAdvSales</servlet-name>
+        <url-pattern>/searchAdvSales</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>advsearchSales</servlet-name>
+        <url-pattern>/advsearchSales</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSalApro</servlet-name>
+        <url-pattern>/ListSalApro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSalCancel</servlet-name>
+        <url-pattern>/ListSalCancel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>aproSal</servlet-name>
+        <url-pattern>/aproSal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cancelSal</servlet-name>
+        <url-pattern>/cancelSal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modSal</servlet-name>
+        <url-pattern>/modSal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarSal</servlet-name>
+        <url-pattern>/modificarSal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSalProd</servlet-name>
+        <url-pattern>/ListSalProd</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

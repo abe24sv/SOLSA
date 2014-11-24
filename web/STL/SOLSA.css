@@ -10,6 +10,15 @@ body{
     display: table;
     float: left;
 }
+table.full{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+tr.full,td.full{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 #Header{
     position: fixed;
     top: 0px;

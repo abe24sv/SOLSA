@@ -1,3 +1,5 @@
+package com.model;
+
 
 import Interfaz.DivLateral;
 import Interfaz.Link;
@@ -15,7 +17,7 @@ public class UsuarioVentas extends Usuario{
     public static void interfaz(HttpServletRequest request){
         System.out.println("Vendedor Loggeado");
         LinkedList<Opcion> interfazlat=new LinkedList<Opcion>();
-        interfazlat.add(new Opcion("Ventas",new DivLateral(false,new Link("Por Fecha","./ListSalDate"),new Link("Por Cliente","./ListSalCli"),new Link("Por Producto","./ListSalProd"))));
+        interfazlat.add(new Opcion("Ventas",new DivLateral(false,new Link("Todo","./ListSalAll"),new Link("Por Fecha","./ListSalDate"),new Link("Por Cliente","./ListSalCli"),new Link("Por Producto","./ListSalProd"))));
         interfazlat.add(new Opcion("Historial",new DivLateral(false,new Link("Aprobaciones","./ListSalApro"),new Link("Cancelaciones","./ListSalCancel"))));
         HttpSession session=request.getSession(true);
         session.setAttribute("interfazlat", interfazlat);

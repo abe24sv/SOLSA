@@ -1,5 +1,6 @@
+package com.model;
 
-import com.model.Producto;
+
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,10 @@ public class Compra {
         this.productos=productos;
         this.cliente=cliente;
         this.usuario=usuario;
+    }
+    
+    public Compra(){
+        
     }
     
     public void setid(int id){

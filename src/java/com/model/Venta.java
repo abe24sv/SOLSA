@@ -1,5 +1,6 @@
+package com.model;
 
-import com.model.Producto;
+
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,10 @@ public class Venta extends Compra{
     public Venta(int id,int estado,String fecha_inicio,String fecha_entrega,LinkedList<Producto> productos,Cliente cliente,Usuario usuario,Usuario vendedor){
         super(id,estado,fecha_inicio,fecha_entrega,productos,cliente,usuario);
         this.vendedor=vendedor;
+    }
+    
+    public Venta(){
+        super();
     }
     
     public void setvendedor(Usuario vendedor){

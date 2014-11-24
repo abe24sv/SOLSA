@@ -1,20 +1,17 @@
+package com.model;
 
-import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
+import java.sql.ResultSet;
 
-public class Cliente {
-    private int id;
-    private String nombre,logo;
-    
-    public Cliente(int id,String nombre,String logo){
+public abstract class Usuario {
+    protected int id,tipo;
+    protected String nombre,apellido;
+
+    public Usuario(int id,String nombre,String apellido,int tipo){
         this.id=id;
         this.nombre=nombre;
-        this.logo=logo;
-    }
-    
-    public Cliente(int id,String nombre){
-        this.id=id;
-        this.nombre=nombre;
+        this.apellido=apellido;
+        this.tipo=tipo;
     }
     
     public void setid(int id){
@@ -23,8 +20,11 @@ public class Cliente {
     public void setnombre(String nombre){
         this.nombre=nombre;
     }
-    public void setlogo(String logo){
-        this.logo=logo;
+    public void setapellido(String apellido){
+        this.apellido=apellido;
+    }
+    public void setipo(int tipo){
+        this.tipo=tipo;
     }
     
     public int getid(){
@@ -33,11 +33,17 @@ public class Cliente {
     public String getnombre(){
         return nombre;
     }
-    public String getlogo(){
-        return logo;
+    public String getapellido(){
+        return apellido;
+    }
+    public int gettipo(){
+        return tipo;
     }
     
-    public Cliente registrar(){
+    public static void interfaz(HttpServletRequest request){
+    }
+    
+    public Usuario registrar(){
         return this;
     }
     
@@ -46,22 +52,12 @@ public class Cliente {
         return eliminado;
     }
     
-    public static boolean modificar(int id, Cliente climod){
+    public static boolean modificar(int id,Usuario usrmod){
         boolean eliminado=false;
         return eliminado;
     }
     
     public static HttpServletRequest mostrar(int id){
-        HttpServletRequest elementos=null;
-        return elementos;
-    }
-    
-    public static HttpServletRequest verTodos(Integer ini){
-        HttpServletRequest elementos=null;
-        return elementos;
-    }
-    
-    public HttpServletRequest verUsuarios(Integer ini){
         HttpServletRequest elementos=null;
         return elementos;
     }

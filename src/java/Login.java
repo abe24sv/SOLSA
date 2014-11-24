@@ -1,4 +1,11 @@
 
+import com.model.UsuarioAlmacen;
+import com.model.UsuarioAprobador;
+import com.model.UsuarioCapturista;
+import com.model.UsuarioAdministrador;
+import com.model.Usuario;
+import com.model.UsuarioVentas;
+import com.model.Cliente;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
