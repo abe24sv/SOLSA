@@ -21,7 +21,10 @@ public class UsuarioAdministrador extends Usuario{
         interfazlat.add(new Opcion("Sistema",new DivLateral(false,new Link("Usuarios","./ListUsers"),new Link("Administrar","./report.jsp"))));
         HttpSession session=request.getSession(true);
         session.setAttribute("interfazlat", interfazlat);
-        session.setAttribute("mainsearch", false);
+        session.setAttribute("mainsearch", true);
+        session.setAttribute("searchurl", "./searchUser");
+        session.setAttribute("searchtip", "Buscar Usuarios");
+        session.setAttribute("advsearchurl", "./advsearchUser");
         session.setAttribute("canbuy", false);
     }
 }
