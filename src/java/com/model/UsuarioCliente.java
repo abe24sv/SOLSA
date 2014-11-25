@@ -1,6 +1,11 @@
 package com.model;
 
+import Interfaz.ListaTitulada;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
 
 public abstract class UsuarioCliente extends Usuario{
