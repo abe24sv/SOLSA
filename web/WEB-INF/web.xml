@@ -104,6 +104,66 @@
         <servlet-name>ListOrdProd</servlet-name>
         <servlet-class>ListOrdProd</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>BuscaCatalogo</servlet-name>
+        <servlet-class>BuscaCatalogo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreaCatalogo</servlet-name>
+        <servlet-class>CreaCatalogo</servlet-class>
+    </servlet>    
+    <servlet>
+        <servlet-name>MuestraCatalogo</servlet-name>
+        <servlet-class>MuestraCatalogo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscaCliente</servlet-name>
+        <servlet-class>BuscaCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreaCliente</servlet-name>
+        <servlet-class>CreaCliente</servlet-class>
+    </servlet>      
+    <servlet>
+        <servlet-name>MuestraCliente</servlet-name>
+        <servlet-class>MuestraCliente</servlet-class>
+    </servlet>    
+    <servlet>
+        <servlet-name>BorraCliente</servlet-name>
+        <servlet-class>BorraCliente</servlet-class>
+    </servlet>
+    <servlet>
+         <servlet-name>BorraCatalogo</servlet-name>
+         <servlet-class>BorraCatalogo</servlet-class>
+    </servlet>
+    <servlet>
+         <servlet-name>ModificaCatalogo</servlet-name>
+         <servlet-class>ModificaCatalogo</servlet-class>
+    </servlet>
+    <servlet>
+         <servlet-name>QuitaProducto</servlet-name>
+         <servlet-class>QuitaProducto</servlet-class>
+    </servlet>
+    <servlet>
+         <servlet-name>AsignaProducto</servlet-name>
+         <servlet-class>AsignaProducto</servlet-class>
+    </servlet>
+    <servlet>
+         <servlet-name>CambiaCatalogo</servlet-name>
+         <servlet-class>CambiaCatalogo</servlet-class>
+    </servlet>
+    <servlet>
+         <servlet-name>ModificaCliente</servlet-name>
+         <servlet-class>ModificaCliente</servlet-class>
+    </servlet>
+    <servlet>
+         <servlet-name>QuitaCatalogo</servlet-name>
+         <servlet-class>QuitaCatalogo</servlet-class>
+    </servlet>    
+    <servlet>
+         <servlet-name>AsignaCatalogo</servlet-name>
+         <servlet-class>AsignaCatalogo</servlet-class>
+    </servlet>    
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -208,6 +268,66 @@
         <servlet-name>ListOrdProd</servlet-name>
         <url-pattern>/ListOrdProd</url-pattern>
     </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>BuscaCatalogo</servlet-name>
+        <url-pattern>/SearchCatalogue</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreaCatalogo</servlet-name>
+        <url-pattern>/CrearCat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MuestraCatalogo</servlet-name>
+        <url-pattern>/DisplayCatalogue</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaCliente</servlet-name>
+        <url-pattern>/SearchClient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreaCliente</servlet-name>
+        <url-pattern>/CrearCli</url-pattern>
+    </servlet-mapping>     
+    <servlet-mapping>
+        <servlet-name>MuestraCliente</servlet-name>
+        <url-pattern>/DisplayClient</url-pattern>
+    </servlet-mapping>    
+    <servlet-mapping>
+        <servlet-name>BorraCliente</servlet-name>
+        <url-pattern>/delCli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BorraCatalogo</servlet-name>
+        <url-pattern>/delCat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaCatalogo</servlet-name>
+        <url-pattern>/modCat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuitaProducto</servlet-name>
+        <url-pattern>/noProd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AsignaProducto</servlet-name>
+        <url-pattern>/addProd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiaCatalogo</servlet-name>
+        <url-pattern>/camCat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaCliente</servlet-name>
+        <url-pattern>/modCli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuitaCatalogo</servlet-name>
+        <url-pattern>/noCata</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AsignaCatalogo</servlet-name>
+        <url-pattern>/addCata</url-pattern>
+    </servlet-mapping>    
     <session-config>
         <session-timeout>
             60
