@@ -16,8 +16,8 @@ public class UsuarioAdministrador extends Usuario{
     public static void interfaz(HttpServletRequest request){
         System.out.println("Administrador Loggeado");
         LinkedList<Opcion> interfazlat=new LinkedList<Opcion>();
-        interfazlat.add(new Opcion("Catálogos",new DivLateral(true,"./SearchCatalogue","./searchcataform.jsp",new Link("Administrar","./ListCatalogues"))));
-        interfazlat.add(new Opcion("Clientes",new DivLateral(true,"./SearchClient","./searchcliform.jsp",new Link("Administrar","./ListClients"))));
+        interfazlat.add(new Opcion("Catálogos",new DivLateral(true,"./SearchCatalogue","./searchcataform.jsp",new Link("Administrar","./DisplayCatalogue"), new Link("Crear","./crearcatalogo.jsp"))));
+        interfazlat.add(new Opcion("Clientes",new DivLateral(true,"./SearchClient","./searchcliform.jsp",new Link("Administrar","./DisplayClient"), new Link("Crear","./crearcliente.jsp"))));
         interfazlat.add(new Opcion("Sistema",new DivLateral(false,new Link("Usuarios","./ListUsers"),new Link("Administrar","./report.jsp"))));
         HttpSession session=request.getSession(true);
         session.setAttribute("interfazlat", interfazlat);
