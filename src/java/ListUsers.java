@@ -1,4 +1,6 @@
 
+import com.model.UsuarioCliente;
+import com.model.Usuario;
 import Interfaz.ListaTitulada;
 import java.io.IOException;
 import java.io.PrintWriter;
