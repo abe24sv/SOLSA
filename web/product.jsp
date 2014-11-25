@@ -93,68 +93,7 @@
                 document.getElementById("ModificarVenta").appendChild(newdiv);
             }
         </script>
-        <script type="text/javascript">
-	$(document).ready(function() {
-		$('#ProductTableContainer').jtable({
-			title : 'Lista de Productos',
-			actions : {
-				listAction : 'Controller?action=list',
-				createAction : 'Controller?action=create',
-				updateAction : 'Controller?action=update',
-				deleteAction : 'Controller?action=delete'
-			},
-			fields : {
-				productId : {
-					title : 'Id del producto',
-					width : '30%',
-					key : true,
-					list : true,
-					edit : false,
-					create : true
-				},
-				name : {
-					title : 'nombre',
-					width : '30%',
-					edit : true
-				},
-				description : {
-					title : 'Descripción',
-                                        type : 'textarea',
-					width : '30%',
-					edit : true
-				},
-                                quantity : {
-					title : 'Cantidad',
-					width : '30%',
-					edit : true
-				},
-                                category : {
-					title : 'Categoría',
-                                        options: '',
-                                        list: false
-				},
-                                subcategory : {
-					title : 'Sub-Categoría',
-                                        options: '',
-                                        list: false
-				},
-                                image : {
-					title : 'Imagen',
-                                         input : function (data){
-                                            return "<input type='file' name='img'>";
-                                        }
-				},
-				brand : {
-					title : 'Marca',
-					width : '20%',
-					edit : true
-				}
-			}
-		});
-		$('#ProductTableContainer').jtable('load');
-	});
-    </script>
-        
+     <title>Crea un nuevo Producto</title>   
     </head>
     <body style="margin: 0px;">
         <div id="Header" class="Header">
@@ -253,35 +192,16 @@
                 
             </div>
             <div id="Content">
-                    <table >
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Cantidad</th>
-                                <th>Categoría</th>
-                                <th>Subcategoría</th>
-                                <th>Imagen</th>
-                                <th>Marca</th>
-                                <th colspan=2>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${productos}" var="producto">
-                                <tr>
-                                    <td><c:out value="${producto.nombre}" /></td>
-                                    <td><c:out value="${producto.descripcion}" /></td>
-                                    <td><c:out value="${producto.id_cantidad}" /></td>
-                                    <td><c:out value="${producto.id_subcategoría}" /></td>
-                                    <td><c:out value="${producto.imagen}" /></td>
-                                    <td><c:out value="${producto.id_marca}" /></td>
-                                    <td><a href="Controller?action=edit&name=<c:out value="${producto.name}"/>&description=<c:out value="${producto.descripcion}"/>">Update</a></td>
-                                    <td><a href="Controller?action=delete&name=<c:out value="${producto.name}"/>&description=<c:out value="${producto.descripcion}"/>">Delete</a></td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                    <p><a href="Controller?action=insert">Agregar Producto</a></p>
+                     <form method="POST" action='Controller' name="frmAddProduct">
+                        Nombre : <input type="text" name="nombre" value="<c:out value="${producto.nombre}" />" /> <br /> 
+                        Descripcion : <input type="text" name="descripcion" value="<c:out value="${producto.descripcion}" />" /> <br /> 
+                        Cantidad : <input type="text" name="cantidad" value="<c:out value="${producto.cantidad}" />" /> <br /> 
+                        Categoria : <input type="text" name="id_categoria" value="<c:out value="${producto.id_categoria}" />" /> <br /> 
+                        Sub-Categoria : <input type="text" name="id_subcategoria" value="<c:out value="${producto.id_subcategoria}" />" /> <br /> 
+                        Imagen : <input type="text" name="imagen" value="<c:out value="${producto.imagen}" />" /> <br /> 
+                        Marca : <input type="text" name="id_marca" value="<c:out value="${producto.id_marca}" />" /> <br /> 
+                         <input type="submit" value="Submit" />
+                    </form>
             </div>
         </div>
         </div>
