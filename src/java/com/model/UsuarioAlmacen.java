@@ -18,7 +18,7 @@ public class UsuarioAlmacen extends Usuario{
         System.out.println("Trabjador Almacen Loggeado");
         LinkedList<Opcion> interfazlat=new LinkedList<Opcion>();
         interfazlat.add(new Opcion("Ordenes de Envío",new DivLateral(false,new Link("General","./ListOrdGen"),new Link("Por Fecha","./ListOrdDate"),new Link("Por Cliente","./ListOrdCli"),new Link("Por Producto","./ListOrdProd"))));
-        interfazlat.add(new Opcion("Productos",new DivLateral(true,"./searchProduct","./searchproform.jsp",new Link("Administrar","./redirect.jsp"))));
+        interfazlat.add(new Opcion("Productos",new DivLateral(true,"./searchProduct","./searchproform.jsp",new Link("Administrar","./ListProducts"))));
         interfazlat.add(new Opcion("Categorías",new DivLateral(true,"./searchCategory","./searchcatform.jsp",new Link("Administrar","./ListCategories"),new Link("Subcategorias","./ListSubCategories"))));
         HttpSession session=request.getSession(true);
         session.setAttribute("interfazlat", interfazlat);
