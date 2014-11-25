@@ -18,7 +18,7 @@ public class UsuarioAdministrador extends Usuario{
         LinkedList<Opcion> interfazlat=new LinkedList<Opcion>();
         interfazlat.add(new Opcion("Catálogos",new DivLateral(true,"./SearchCatalogue","./searchcataform.jsp",new Link("Administrar","./DisplayCatalogue"), new Link("Crear","./crearcatalogo.jsp"))));
         interfazlat.add(new Opcion("Clientes",new DivLateral(true,"./SearchClient","./searchcliform.jsp",new Link("Administrar","./DisplayClient"), new Link("Crear","./crearcliente.jsp"))));
-        interfazlat.add(new Opcion("Sistema",new DivLateral(false,new Link("Usuarios","./ListUsers"),new Link("Administrar","./report.jsp"))));
+        interfazlat.add(new Opcion("Sistema",new DivLateral(false,new Link("Usuarios","./ListUsers"))));
         HttpSession session=request.getSession(true);
         session.setAttribute("interfazlat", interfazlat);
         session.setAttribute("mainsearch", true);
