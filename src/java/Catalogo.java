@@ -28,6 +28,9 @@ public class Catalogo {
         this.descripcion=descripcion;
     }
     
+    public Catalogo(){
+	}
+    
     public void setid(int id){
         this.id=id;
     }
