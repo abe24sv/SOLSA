@@ -245,3 +245,23 @@ div.Opcion{
     text-decoration: none;
     color: black;
 }
+.Input{
+    height: 25px;
+    border: 1px solid rgb(111,111,111);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.OpFlo{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    border-radius: 20px;
+    box-shadow: 0px 0px 3px rgb(111,111,111);
+}
+#Agregar{
+    background-color: rgb(52,230,0);
+}
+#Modificar{
+    background-color: rgb(0,162,232);
+}
