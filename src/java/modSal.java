@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import com.model.Cliente;
 import com.model.Producto;
 import com.model.Categoria;
@@ -121,7 +115,7 @@ public class modSal extends HttpServlet {
                      venta = new Venta(result.getInt("venta.id_compra"),result.getInt("compra.estado"),result.getString("compra.fecha_inicio"),result.getString("compra.fecha_entrega"),compraProducto.get(result.getInt("venta.id_compra")),cliente,comprador,vendedor);
                 }
                query3.close();
-               url="/main.jsp";  
+               url="/cont.jsp";  
                 PreparedStatement query4=con.prepareStatement("SELECT * FROM ((producto JOIN categoria ON producto.id_categoria = categoria.id) JOIN subcategoria ON producto.id_subcategoria = subcategoria.id) JOIN marca ON producto.id_marca = marca.id");
                 result = query4.executeQuery();
                 LinkedList<Producto> p = new LinkedList<Producto>();

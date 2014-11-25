@@ -1,6 +1,7 @@
-import com.model.Cliente;
-import com.model.Producto;
 import com.model.Categoria;
+import com.model.Cliente;
+import com.model.Compra;
+import com.model.Producto;
 import com.model.Usuario;
 import com.model.UsuarioAdministrador;
 import com.model.UsuarioAlmacen;
@@ -114,7 +115,7 @@ public class ListSalProd extends HttpServlet {
                      ventas.add(new Venta(result.getInt("venta.id_compra"),result.getInt("compra.estado"),result.getString("compra.fecha_inicio"),result.getString("compra.fecha_entrega"),compraProducto.get(result.getInt("venta.id_compra")),cliente,comprador,vendedor));
                 }
                query3.close();
-               url="/main.jsp";  
+               url="/cont.jsp"; 
                 
                 aux.disconnect();
                 request.setAttribute("realizoConsulta",1);

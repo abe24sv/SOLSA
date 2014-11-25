@@ -19,6 +19,10 @@ public class Cliente {
         this.nombre=nombre;
     }
     
+    public Cliente(){
+        
+    }
+    
     public void setid(int id){
         this.id=id;
     }

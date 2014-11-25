@@ -10,12 +10,12 @@ import com.model.UsuarioCapturista;
 import com.model.UsuarioVentas;
 import com.model.Venta;
 import java.io.IOException;
-import java.util.*;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -97,7 +97,7 @@ public class ListToReceive extends HttpServlet {
                      listaCompras.add(new Compra(result.getInt("compra.id"),result.getInt("compra.estado"),result.getString("compra.fecha_inicio"),result.getString("compra.fecha_entrega"),compraProducto.get(result.getInt("compra.id")),cliente,comprador));
                 }
                query3.close();
-               url="/main.jsp";  
+               url="/cont.jsp";   
                 
                 aux.disconnect();
                 request.setAttribute("verComprasApro",1);

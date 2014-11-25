@@ -22,6 +22,12 @@ public class Catalogo {
         this.nombre=nombre;
     }
     
+    public Catalogo(int id,String nombre, String descripcion){
+        this.id=id;
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+    }
+    
     public void setid(int id){
         this.id=id;
     }

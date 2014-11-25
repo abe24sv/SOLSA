@@ -94,7 +94,7 @@ public class ListOrdDate extends HttpServlet {
                      listaCompras.add(new Compra(result.getInt("compra.id"),result.getInt("compra.estado"),result.getString("compra.fecha_inicio"),result.getString("compra.fecha_entrega"),compraProducto.get(result.getInt("compra.id")),cliente,comprador));
                 }
                query3.close();
-               url="/main.jsp";  
+               url="/cont.jsp"; 
                 
                 aux.disconnect();
                 request.setAttribute("verComprasAlm",1);

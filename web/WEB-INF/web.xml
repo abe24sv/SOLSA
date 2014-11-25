@@ -104,6 +104,62 @@
         <servlet-name>ListOrdProd</servlet-name>
         <servlet-class>ListOrdProd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListCategories</servlet-name>
+        <servlet-class>ListCategories</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarCategoria</servlet-name>
+        <servlet-class>eliminarCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editarCategoria</servlet-name>
+        <servlet-class>editarCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarCategoria</servlet-name>
+        <servlet-class>agregarCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cambiarCategoria</servlet-name>
+        <servlet-class>cambiarCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSubCategories</servlet-name>
+        <servlet-class>ListSubCategories</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editarSubCategoria</servlet-name>
+        <servlet-class>editarSubCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cambiarSubCategoria</servlet-name>
+        <servlet-class>cambiarSubCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarSubCategoria</servlet-name>
+        <servlet-class>eliminarSubCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarSubCategoria</servlet-name>
+        <servlet-class>agregarSubCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListProducts</servlet-name>
+        <servlet-class>ListProducts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarProdAlm</servlet-name>
+        <servlet-class>eliminarProdAlm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agProdAlm</servlet-name>
+        <servlet-class>agProdAlm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarProdAlm</servlet-name>
+        <servlet-class>agregarProdAlm</servlet-class>
+    </servlet>
      <servlet>
         <servlet-name>BuscaCatalogo</servlet-name>
         <servlet-class>BuscaCatalogo</servlet-class>
@@ -267,6 +323,62 @@
     <servlet-mapping>
         <servlet-name>ListOrdProd</servlet-name>
         <url-pattern>/ListOrdProd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListCategories</servlet-name>
+        <url-pattern>/ListCategories</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarCategoria</servlet-name>
+        <url-pattern>/eliminarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editarCategoria</servlet-name>
+        <url-pattern>/editarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarCategoria</servlet-name>
+        <url-pattern>/agregarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cambiarCategoria</servlet-name>
+        <url-pattern>/cambiarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSubCategories</servlet-name>
+        <url-pattern>/ListSubCategories</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editarSubCategoria</servlet-name>
+        <url-pattern>/editarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cambiarSubCategoria</servlet-name>
+        <url-pattern>/cambiarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarSubCategoria</servlet-name>
+        <url-pattern>/eliminarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarSubCategoria</servlet-name>
+        <url-pattern>/agregarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListProducts</servlet-name>
+        <url-pattern>/ListProducts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarProdAlm</servlet-name>
+        <url-pattern>/eliminarProdAlm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agProdAlm</servlet-name>
+        <url-pattern>/agProdAlm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarProdAlm</servlet-name>
+        <url-pattern>/agregarProdAlm</url-pattern>
     </servlet-mapping>
      <servlet-mapping>
         <servlet-name>BuscaCatalogo</servlet-name>

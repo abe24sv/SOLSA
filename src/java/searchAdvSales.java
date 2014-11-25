@@ -1,8 +1,6 @@
-
-import com.model.Categoria;
 import com.model.Cliente;
-import com.model.Compra;
 import com.model.Producto;
+import com.model.Categoria;
 import com.model.Usuario;
 import com.model.UsuarioAdministrador;
 import com.model.UsuarioAlmacen;
@@ -127,7 +125,7 @@ public class searchAdvSales extends HttpServlet {
                      a.add(result.getInt("venta.id_compra"));
                 }
                query3.close();
-               PreparedStatement query4=con.prepareStatement("SELECT * FROM (((venta JOIN compra ON venta.id_compra = compra.id) JOIN cliente ON compra.id_cliente = cliente.id) JOIN usuario ON compra.id_usuario = usuario.id),usuario AS vendedor WHERE venta.id_usuario = vendedor.id;");
+               PreparedStatement query4=con.prepareStatement("SELECT * FROM (((venta JOIN compra ON venta.id_compra = compra.id) JOIN cliente ON compra.id_cliente = cliente.id) JOIN usuario ON compra.id_usuario = usuario.id),usuario AS vendedor WHERE venta.id_usuario = vendedor.id AND (compra.estado = 1 OR compra.estado > 2);");
                result=query4.executeQuery();
                while(result.next()){
                    boolean b = false;
@@ -194,7 +192,7 @@ public class searchAdvSales extends HttpServlet {
                         }
                }
                query4.close();
-               url="/main.jsp";  
+               url="/cont.jsp"; 
                 
                 aux.disconnect();
                 request.setAttribute("realizoConsulta",1);

@@ -1,39 +1,39 @@
-package com.model;
-
 
 import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 
-public class Categoria {
-    public int id;
-    public String nombre;
-    
-    public Categoria(){
-        
+public class Subcategoria extends Categoria {
+    public String categoria;
+    public int idCategoria;
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
     
-    public Categoria(int id,String nombre){
-        this.id=id;
-        this.nombre=nombre;
+    public Subcategoria(int id,String nombre){
+        super(id,nombre);
     }
     
-    
-    
-    public void setid(int id){
-        this.id=id;
-    }
-    public void setnombre(String nombre){
-        this.nombre=nombre;
+    public Subcategoria(int id,String nombre,int idCategoria, String categoria){
+        super(id,nombre);
+        this.idCategoria = idCategoria;
+        this.categoria = categoria;
     }
     
-    public int getid(){
-        return id;
-    }
-    public String getnombre(){
-        return nombre;
-    }
-    
-    public Categoria registrar(){
+    @Override
+    public Subcategoria registrar(){
         return this;
     }
     
@@ -42,7 +42,7 @@ public class Categoria {
         return eliminado;
     }
     
-    public static boolean modificar(int id, Categoria catmod){
+    public static boolean modificar(int id,Subcategoria subcatmod){
         boolean eliminado=false;
         return eliminado;
     }

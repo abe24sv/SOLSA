@@ -1,3 +1,13 @@
+import com.model.Cliente;
+import com.model.Producto;
+import com.model.Categoria;
+import com.model.Usuario;
+import com.model.UsuarioAdministrador;
+import com.model.UsuarioAlmacen;
+import com.model.UsuarioAprobador;
+import com.model.UsuarioCapturista;
+import com.model.UsuarioVentas;
+import com.model.Venta;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

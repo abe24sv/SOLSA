@@ -22,7 +22,7 @@ public class advsearchSales extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                         request.setAttribute("busquedaAvanzada", 1);
-                RequestDispatcher disp = getServletContext().getRequestDispatcher("/main.jsp");
+                RequestDispatcher disp = getServletContext().getRequestDispatcher("/cont.jsp");
                 if(disp!=null){
                     disp.forward(request, response);
                 }
