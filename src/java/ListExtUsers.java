@@ -1,3 +1,5 @@
+import com.model.UsuarioCliente;
+import com.model.Cliente;
 import Interfaz.ListaTitulada;
 import java.io.IOException;
 import java.sql.Connection;
