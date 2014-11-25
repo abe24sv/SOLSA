@@ -1,4 +1,5 @@
 
+import com.model.Categoria;
 import java.io.IOException;
 import java.util.*;
 import java.io.PrintWriter;
