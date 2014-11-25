@@ -62,9 +62,49 @@ public abstract class Usuario {
         return elementos;
     }
     
-    public static ResultSet buscar(String busca,Integer ini){
-        ResultSet resultado=null;
-        return resultado;
+    public static LinkedList<ListaTitulada> verTodos(String limit,Connection con)throws SQLException{
+        Integer lim=Integer.parseInt(limit); 
+        
+        PreparedStatement query=con.prepareStatement("SELECT * FROM usuario WHERE tipo=1 OR tipo=2;");
+        //query.setInt(1, lim);
+        
+        int id=-10;
+        int size=1;
+        ResultSet result=query.executeQuery();
+        LinkedList<Usuario> registros=new LinkedList<Usuario>();
+        LinkedList<ListaTitulada> listatitu=new LinkedList<ListaTitulada>();
+        
+        while(result.next()){
+            registros.add(new Usuario(result.getInt("id"),result.getString("nombre"),result.getString("apellido"),result.getInt("tipo")));
+        }
+        
+        listatitu.add(new ListaTitulada("Internos","./IMG/SOLSA.png",registros));
+        
+        return listatitu;
+    }
+    
+    public static LinkedList<ListaTitulada> buscar(String busca,String limit,Connection con)throws SQLException{
+        Integer lim=Integer.parseInt(limit); 
+        
+        PreparedStatement query=con.prepareStatement("SELECT * FROM usuario WHERE (tipo=1 OR tipo=2) AND (usuario.id LIKE ?  OR usuario.nombre LIKE ? OR usuario.apellido LIKE ? OR usuario.tipo LIKE ? );");
+        query.setString(1, "%"+busca+"%");
+        query.setString(2, "%"+busca+"%");
+        query.setString(3, "%"+busca+"%");
+        query.setString(4, "%"+busca+"%");
+        
+        int id=-10;
+        int size=1;
+        ResultSet result=query.executeQuery();
+        LinkedList<Usuario> registros=new LinkedList<Usuario>();
+        LinkedList<ListaTitulada> listatitu=new LinkedList<ListaTitulada>();
+        
+        while(result.next()){
+            registros.add(new Usuario(result.getInt("id"),result.getString("nombre"),result.getString("apellido"),result.getInt("tipo")));
+        }
+        
+        listatitu.add(new ListaTitulada("Internos","./IMG/SOLSA.png",registros));
+        
+        return listatitu;
     }
     
      public static ResultSet buscarAvanzado(String busca,Integer ini,Boolean... opciones){
