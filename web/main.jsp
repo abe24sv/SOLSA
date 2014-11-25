@@ -239,6 +239,17 @@
                             <input type="submit" value="Buscar"/>
                         </form>
                     </c:if>
+                    <c:if test="${requestScope.busquedaAvanzada == 2}">
+                        <form action="./searchAdvOrd" method="POST">
+                            Cliente:<input type="text" name="bcliente"/><br/>
+                            Usuario:<input type="text" name="busuario"/><br/>
+                            Vendedor:<input type="text" name="bvendedor"/><br/>
+                            Producto:<input type="text" name="bproducto"/><br/>
+                            <input type="radio" checked="checked" name="type" value="0"/>OR
+                            <input type="radio" name="type" value="1"/>AND
+                            <input type="submit" value="Buscar"/>
+                        </form>
+                    </c:if>
                     <c:if test="${requestScope.realizoConsulta == 1}">
                         <div style="position: relative;display: table;width: 98%;margin: 1%;font-size: 14px;">
                         <div style="display: table-row;width: 100%;height: 20px;">

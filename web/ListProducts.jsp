@@ -118,7 +118,7 @@
 					edit : true
 				},
 				description : {
-					title : 'Descripción',
+					title : 'DescripciÃ³n',
                                         type : 'textarea',
 					width : '30%',
 					edit : true
@@ -129,12 +129,12 @@
 					edit : true
 				},
                                 category : {
-					title : 'Categoría',
+					title : 'CategorÃ­a',
                                         options: '',
                                         list: false
 				},
                                 subcategory : {
-					title : 'Sub-Categoría',
+					title : 'Sub-CategorÃ­a',
                                         options: '',
                                         list: false
 				},
@@ -259,8 +259,8 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Cantidad</th>
-                                <th>Categoría</th>
-                                <th>Subcategoría</th>
+                                <th>CategorÃ­a</th>
+                                <th>SubcategorÃ­a</th>
                                 <th>Imagen</th>
                                 <th>Marca</th>
                                 <th colspan=2>Action</th>
@@ -272,7 +272,7 @@
                                     <td><c:out value="${producto.nombre}" /></td>
                                     <td><c:out value="${producto.descripcion}" /></td>
                                     <td><c:out value="${producto.id_cantidad}" /></td>
-                                    <td><c:out value="${producto.id_subcategoría}" /></td>
+                                    <td><c:out value="${producto.id_subcategoria}" /></td>
                                     <td><c:out value="${producto.imagen}" /></td>
                                     <td><c:out value="${producto.id_marca}" /></td>
                                     <td><a href="Controller?action=edit&name=<c:out value="${producto.name}"/>&description=<c:out value="${producto.descripcion}"/>">Update</a></td>
