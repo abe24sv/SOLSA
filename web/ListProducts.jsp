@@ -170,7 +170,7 @@
                     <div id="Search">
                         <div id="SearchCon">
                             <form method="POST" action="${sessionScope.searchurl}">
-                                <input id="SBar" class="Search Bar" type="text" placeholder="${sessionScope.searchtip}"/>
+                                <input id="SBar" class="Search Bar" type="text" name="busca" placeholder="${sessionScope.searchtip}"/>
                                 <input type="image" src="./IMG/Search.png" style="height: 25px;position: relative;top: 3px;"/>
                             </form>
                         </div>
@@ -232,7 +232,7 @@
                 <c:if test="${opcion.lateral.searchbar}">
                     <div id="BuscOpc" class="Opcion">
                         <form method="POST" action="${opcion.lateral.searchurl}">
-                            <input id="BuscOpcBar" type="text" style="" placeholder="B&uacute;squeda"/>
+                            <input id="BuscOpcBar" type="text" style="" name="busca" placeholder="B&uacute;squeda"/>
                             <input type="image" src="./IMG/Search.png" style="height: 20px;position: relative;top: 0px;"/>
                         </form>
                     </div>
