@@ -348,6 +348,11 @@
         <param-name>bdNom</param-name>
         <param-value>esolsa</param-value>
     </context-param>
+    <context-param>
+    <description>Location of images</description>
+    <param-name>im-dir</param-name>
+    <param-value>C:/Users/Mike/Downloads/apache-tomcat-7.0.57/webapps/ESOLSA/IMG/</param-value>
+    </context-param>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
