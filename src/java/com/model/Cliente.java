@@ -68,6 +68,46 @@ public class Cliente {
         return elementos;
     }
     
+    public LinkedList<ListaTitulada> verUsuarios(Connection con) throws SQLException{
+        
+        PreparedStatement query=con.prepareStatement("SELECT id,nombre,apellido,tipo FROM usuario,usuario_ext WHERE usuario.id=usuario_ext.id_usuario AND tipo=3 AND id_cliente= ? ;");
+        query.setString(1, this.id+"");
+
+        int size=1;
+        ResultSet result=query.executeQuery();
+        LinkedList<Usuario> registros=new LinkedList<Usuario>();
+        LinkedList<ListaTitulada> listatitu=new LinkedList<ListaTitulada>();
+        
+        while(result.next()){
+            registros.add(new Usuario(result.getInt("id"),result.getString("nombre"),result.getString("apellido"),result.getInt("tipo")));
+        }
+        
+        listatitu.add(new ListaTitulada(this.nombre,this.logo,registros));
+        
+        return listatitu;
+    }
+    
+    public LinkedList<ListaTitulada> buscarUsuarios(String busca,String limit,Connection con)throws SQLException{
+        PreparedStatement query=con.prepareStatement("SELECT id,nombre,apellido,tipo FROM usuario,usuario_ext WHERE usuario.id=usuario_ext.id_usuario AND tipo=3 AND id_cliente= ? AND (usuario.id LIKE ?  OR usuario.nombre LIKE ? OR usuario.apellido LIKE ? );");
+        query.setString(1, this.id+"");
+        query.setString(2, "%"+busca+"%");
+        query.setString(3, "%"+busca+"%");
+        query.setString(4, "%"+busca+"%");
+
+        int size=1;
+        ResultSet result=query.executeQuery();
+        LinkedList<Usuario> registros=new LinkedList<Usuario>();
+        LinkedList<ListaTitulada> listatitu=new LinkedList<ListaTitulada>();
+        
+        while(result.next()){
+            registros.add(new Usuario(result.getInt("id"),result.getString("nombre"),result.getString("apellido"),result.getInt("tipo")));
+        }
+        
+        listatitu.add(new ListaTitulada(this.nombre,this.logo,registros));
+        
+        return listatitu;
+    }
+    
     public static ResultSet buscar(String busca,Integer ini){
         ResultSet resultado=null;
         return resultado;
