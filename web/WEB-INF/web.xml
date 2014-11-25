@@ -60,6 +60,50 @@
         <servlet-name>ListSalProd</servlet-name>
         <servlet-class>ListSalProd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListSalMade</servlet-name>
+        <servlet-class>ListSalMade</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListToReceive</servlet-name>
+        <servlet-class>ListToReceive</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListToApprove</servlet-name>
+        <servlet-class>ListToApprove</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>aprobarSal</servlet-name>
+        <servlet-class>aprobarSal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>rechazarSal</servlet-name>
+        <servlet-class>rechazarSal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cancelSalAlm</servlet-name>
+        <servlet-class>cancelSalAlm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListOrdDate</servlet-name>
+        <servlet-class>ListOrdDate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>enviarSalAlm</servlet-name>
+        <servlet-class>enviarSalAlm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>recibirSal</servlet-name>
+        <servlet-class>recibirSal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListOrdCli</servlet-name>
+        <servlet-class>ListOrdCli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListOrdProd</servlet-name>
+        <servlet-class>ListOrdProd</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -120,6 +164,50 @@
         <servlet-name>ListSalProd</servlet-name>
         <url-pattern>/ListSalProd</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSalMade</servlet-name>
+        <url-pattern>/ListSalMade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListToReceive</servlet-name>
+        <url-pattern>/ListToReceive</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListToApprove</servlet-name>
+        <url-pattern>/ListToApprove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>aprobarSal</servlet-name>
+        <url-pattern>/aprobarSal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>rechazarSal</servlet-name>
+        <url-pattern>/rechazarSal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cancelSalAlm</servlet-name>
+        <url-pattern>/cancelSalAlm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrdDate</servlet-name>
+        <url-pattern>/ListOrdDate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>enviarSalAlm</servlet-name>
+        <url-pattern>/enviarSalAlm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>recibirSal</servlet-name>
+        <url-pattern>/recibirSal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrdCli</servlet-name>
+        <url-pattern>/ListOrdCli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrdProd</servlet-name>
+        <url-pattern>/ListOrdProd</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             60
@@ -128,7 +216,7 @@
     <context-param>
         <description> AD Base de Datos </description>
         <param-name> bdAdm </param-name>
-        <param-value>root/Base9817+=</param-value>
+        <param-value>solsa/esolsa</param-value>
     </context-param>
     <context-param>
         <description> Host Base de Datos </description>

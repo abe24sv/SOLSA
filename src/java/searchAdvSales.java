@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-import com.model.Cliente;
-import com.model.Producto;
 import com.model.Categoria;
+import com.model.Cliente;
+import com.model.Compra;
+import com.model.Producto;
 import com.model.Usuario;
 import com.model.UsuarioAdministrador;
 import com.model.UsuarioAlmacen;

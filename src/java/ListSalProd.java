@@ -1,4 +1,3 @@
-
 import com.model.Cliente;
 import com.model.Producto;
 import com.model.Categoria;
@@ -66,7 +65,7 @@ public class ListSalProd extends HttpServlet {
                     productos=new LinkedList<Producto>();
                     query2.close();
                 }
-               PreparedStatement query3=con.prepareStatement("SELECT * FROM (((venta JOIN compra ON venta.id_compra = compra.id) JOIN cliente ON compra.id_cliente = cliente.id) JOIN usuario ON compra.id_usuario = usuario.id),usuario AS vendedor WHERE venta.id_usuario = vendedor.id;");
+               PreparedStatement query3=con.prepareStatement("SELECT * FROM (((venta JOIN compra ON venta.id_compra = compra.id) JOIN cliente ON compra.id_cliente = cliente.id) JOIN usuario ON compra.id_usuario = usuario.id),usuario AS vendedor WHERE venta.id_usuario = vendedor.id AND (compra.estado = 1 OR compra.estado > 2);");
                result=query3.executeQuery();
                while(result.next()){
                    Usuario comprador;

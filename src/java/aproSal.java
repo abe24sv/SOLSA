@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.io.IOException;
 import java.util.*;
@@ -39,7 +34,7 @@ public class aproSal extends HttpServlet {
         if(con!=null){
             
             try{
-                PreparedStatement query=con.prepareStatement("UPDATE compra SET estado=1 WHERE id = ?");
+                PreparedStatement query=con.prepareStatement("UPDATE compra SET estado=3 WHERE id = ?");
                 query.setInt(1, id);
                 query.executeUpdate();
                url="/ListSalAll";  

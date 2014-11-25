@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-import com.model.Cliente;
-import com.model.Producto;
 import com.model.Categoria;
+import com.model.Cliente;
+import com.model.Compra;
+import com.model.Producto;
 import com.model.Usuario;
 import com.model.UsuarioAdministrador;
 import com.model.UsuarioAlmacen;
@@ -15,12 +11,12 @@ import com.model.UsuarioCapturista;
 import com.model.UsuarioVentas;
 import com.model.Venta;
 import java.io.IOException;
+import java.util.*;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

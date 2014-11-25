@@ -102,7 +102,7 @@
                     <div id="Search">
                         <div id="SearchCon">
                             <form method="POST" action="${sessionScope.searchurl}">
-                                <input id="SBar" class="Search Bar" type="text" placeholder="${sessionScope.searchtip}"/>
+                                <input name="busqueda" id="SBar" class="Search Bar" type="text" placeholder="${sessionScope.searchtip}"/>
                                 <input type="image" src="./IMG/Search.png" style="height: 25px;position: relative;top: 3px;"/>
                             </form>
                         </div>
@@ -189,7 +189,8 @@
                     
                 </div>
                 <div id="List">
-                                         <c:if test="${requestScope.modificacion == 1}">
+                    
+                    <c:if test="${requestScope.modificacion == 1}">
                         
                         <form action="./modificarSal" method="POST">
                             <input type="hidden" name="mod" value="${requestScope.venta.id}"/>
@@ -239,49 +240,49 @@
                         </form>
                     </c:if>
                     <c:if test="${requestScope.realizoConsulta == 1}">
-                        <table class="full">
-                            <tr class="full">
-                                <td class="full">
-                                    ID
-                                </td>
-                                <td class="full">
-                                    Estado
-                                </td>
-                                <td class="full">
-                                    Fecha de inicio
-                                </td>
-                                <td class="full">
-                                    Fecha de entrega
-                                </td>
-                                <td class="full">
-                                    Cliente
-                                </td>
-                                <td class="full">
-                                    Usuario
-                                </td>
-                                <td class="full">
-                                    Vendedor
-                                </td>
-                                <td class="full">
-                                    Productos
-                                </td>
-                                    <c:choose>
-                                        <c:when test="${requestScope.noEdit == 1}">
-                                        </c:when>
+                        <div style="position: relative;display: table;width: 98%;margin: 1%;font-size: 14px;">
+                        <div style="display: table-row;width: 100%;height: 20px;">
+                            <div class="Cell Head" style="width: 5%;">
+                                ID
+                            </div>
+                            <div class="Cell Head" style="width: 10%;">
+                               Estado
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Fecha de inicio
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Fecha de entrega
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                Cliente
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                Usuario
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                Vendedor
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Productos
+                            </div>
+                            <c:choose>
+                                <c:when test="${requestScope.noEdit == 1}"></c:when>
                                         <c:otherwise>
-                                            <td class="full">
+                                            <div class="Cell Head" style="width: 10%;">
                                                 Opciones
-                                            </td>
+                                            </div>
                                         </c:otherwise>
-                                    </c:choose>
-                            </tr>
+                            </c:choose>
+                        </div>
+                            
                            <c:forEach items="${requestScope.listaVentas}" var="i">
-                               <tr class="full">
-                                <td class="full">
-                                    ${i.id}
-                                </td>
-                                <td class="full">
-                                        <c:choose>
+                               <div class="RowOpc"style="display: table-row;width: 100%;height: 20px;">
+                            <div class="Cell" style="width: 5%;">
+                                ${i.id}
+                            </div>
+                            <div class="Cell" style="width: 10%;">
+                                <c:choose>
                                             <c:when test="${i.estado == 0}">Por Aprobar</c:when>
                                             <c:when test="${i.estado == 1}">Aprobada</c:when>
                                             <c:when test="${i.estado == 2}">Rechazada</c:when>
@@ -291,52 +292,234 @@
                                             <c:when test="${i.estado == 6}">Recibida</c:when>
                                             <c:otherwise>Desconocido</c:otherwise>
                                         </c:choose>
-                                </td>
-                                <td class="full">
-                                    ${i.fecha_inicio}
-                                </td>
-                                <td class="full">
-                                    ${i.fecha_entrega}
-                                </td>
-                                <td class="full">
-                                    ${i.cliente.nombre}
-                                </td>
-                                <td class="full">
-                                    ${i.usuario.nombre}
-                                </td>
-                                <td class="full">
-                                    ${i.vendedor.nombre}
-                                </td>
-                                <td class="full">
-                                    <c:forEach items="${i.productos}" var="j">
+                            </div>
+                            <div class="Cell" style="width: 20%;">
+                                ${i.fecha_inicio}
+                            </div>
+                            <div class="Cell" style="width: 20%;">
+                                ${i.fecha_entrega}
+                            </div>
+                            <div class="Cell" style="width: 15%;">
+                                ${i.cliente.nombre}
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                ${i.usuario.nombre}
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                ${i.vendedor.nombre}
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                <c:forEach items="${i.productos}" var="j">
                                         #${j.cantidad} - ${j.nombre}<br/>
                                     </c:forEach>
-                                </td>
-                                
-                                    <c:choose>
+                            </div>
+                            
+                                                                    <c:choose>
                                         <c:when test="${requestScope.noEdit == 1}">
                                         </c:when>
                                         <c:otherwise>
-                                            <td class="full">
+                                            <div class="Cell Head" style="width: 10%;">
                                                 <form action="./aproSal" method="POST">
                                                     <input type="hidden" name="id" value="${i.id}"/>
-                                                    <a href="javascript:" onclick="parentNode.submit();">Aprobar</a>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Procesar</a>
                                                 </form>
                                                 <form action="./cancelSal" method="POST">
                                                     <input type="hidden" name="id" value="${i.id}"/>
-                                                    <a href="javascript:" onclick="parentNode.submit();">Rechazar</a>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Cancelar</a>
                                                 </form>
                                                 <form action="./modSal" method="POST">
                                                     <input type="hidden" name="id" value="${i.id}"/>
                                                     <a href="javascript:" onclick="parentNode.submit();">Modificar</a>
                                                 </form>
-                                            </td>
+                                            </div>
                                         </c:otherwise>
                                     </c:choose>
-                                
-                               </tr>
+                                </div>                               
                            </c:forEach> 
-                        </table>
+                    </c:if>
+                    <c:if test="${requestScope.verComprasApro == 1}">
+                        <div style="position: relative;display: table;width: 98%;margin: 1%;font-size: 14px;">
+                        <div style="display: table-row;width: 100%;height: 20px;">
+                            <div class="Cell Head" style="width: 5%;">
+                                ID
+                            </div>
+                            <div class="Cell Head" style="width: 10%;">
+                               Estado
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Fecha de inicio
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Fecha de entrega
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                Cliente
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                Usuario
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Productos
+                            </div>
+                            <c:choose>
+                                <c:when test="${requestScope.noEdit == 1}"></c:when>
+                                        <c:otherwise>
+                                            <div class="Cell Head" style="width: 10%;">
+                                                Opciones
+                                            </div>
+                                        </c:otherwise>
+                            </c:choose>
+                        </div>
+                            
+                           <c:forEach items="${requestScope.comprasAprobador}" var="i">
+                               <div class="RowOpc"style="display: table-row;width: 100%;height: 20px;">
+                            <div class="Cell" style="width: 5%;">
+                                ${i.id}
+                            </div>
+                            <div class="Cell" style="width: 10%;">
+                                <c:choose>
+                                            <c:when test="${i.estado == 0}">Por Aprobar</c:when>
+                                            <c:when test="${i.estado == 1}">Aprobada</c:when>
+                                            <c:when test="${i.estado == 2}">Rechazada</c:when>
+                                            <c:when test="${i.estado == 3}">Procesada</c:when>
+                                            <c:when test="${i.estado == 4}">Cancelada</c:when>
+                                            <c:when test="${i.estado == 5}">Enviada</c:when>
+                                            <c:when test="${i.estado == 6}">Recibida</c:when>
+                                            <c:otherwise>Desconocido</c:otherwise>
+                                        </c:choose>
+                            </div>
+                            <div class="Cell" style="width: 20%;">
+                                ${i.fecha_inicio}
+                            </div>
+                            <div class="Cell" style="width: 20%;">
+                                ${i.fecha_entrega}
+                            </div>
+                            <div class="Cell" style="width: 15%;">
+                                ${i.cliente.nombre}
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                ${i.usuario.nombre}
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                <c:forEach items="${i.productos}" var="j">
+                                        #${j.cantidad} - ${j.nombre}<br/>
+                                    </c:forEach>
+                            </div>
+                            
+                            <c:choose>
+                                        <c:when test="${requestScope.noEdit == 1}">
+                                        </c:when>
+                                <c:when test="${requestScope.receive == 1}">
+                                    <div class="Cell Head" style="width: 10%;">
+                                                <form action="./recibirSal" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Recibido</a>
+                                                </form>
+                                    </div>
+                                </c:when>
+                                        <c:otherwise>
+                                            <div class="Cell Head" style="width: 10%;">
+                                                <form action="./aprobarSal" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Aprobar</a>
+                                                </form>
+                                                <form action="./rechazarSal" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Rechazar</a>
+                                                </form>
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>                               
+                           </c:forEach> 
+                    </c:if>
+                    <c:if test="${requestScope.verComprasAlm == 1}">
+                        <div style="position: relative;display: table;width: 98%;margin: 1%;font-size: 14px;">
+                        <div style="display: table-row;width: 100%;height: 20px;">
+                            <div class="Cell Head" style="width: 5%;">
+                                ID
+                            </div>
+                            <div class="Cell Head" style="width: 10%;">
+                               Estado
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Fecha de inicio
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Fecha de entrega
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                Cliente
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                Usuario
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                Productos
+                            </div>
+                            <c:choose>
+                                <c:when test="${requestScope.noEdit == 1}"></c:when>
+                                        <c:otherwise>
+                                            <div class="Cell Head" style="width: 10%;">
+                                                Opciones
+                                            </div>
+                                        </c:otherwise>
+                            </c:choose>
+                        </div>
+                            
+                           <c:forEach items="${requestScope.comprasAlm}" var="i">
+                               <div class="RowOpc"style="display: table-row;width: 100%;height: 20px;">
+                            <div class="Cell" style="width: 5%;">
+                                ${i.id}
+                            </div>
+                            <div class="Cell" style="width: 10%;">
+                                <c:choose>
+                                            <c:when test="${i.estado == 0}">Por Aprobar</c:when>
+                                            <c:when test="${i.estado == 1}">Aprobada</c:when>
+                                            <c:when test="${i.estado == 2}">Rechazada</c:when>
+                                            <c:when test="${i.estado == 3}">Procesada</c:when>
+                                            <c:when test="${i.estado == 4}">Cancelada</c:when>
+                                            <c:when test="${i.estado == 5}">Enviada</c:when>
+                                            <c:when test="${i.estado == 6}">Recibida</c:when>
+                                            <c:otherwise>Desconocido</c:otherwise>
+                                        </c:choose>
+                            </div>
+                            <div class="Cell" style="width: 20%;">
+                                ${i.fecha_inicio}
+                            </div>
+                            <div class="Cell" style="width: 20%;">
+                                ${i.fecha_entrega}
+                            </div>
+                            <div class="Cell" style="width: 15%;">
+                                ${i.cliente.nombre}
+                            </div>
+                            <div class="Cell Head" style="width: 15%;">
+                                ${i.usuario.nombre}
+                            </div>
+                            <div class="Cell Head" style="width: 20%;">
+                                <c:forEach items="${i.productos}" var="j">
+                                        #${j.cantidad} - ${j.nombre}<br/>
+                                    </c:forEach>
+                            </div>
+                            
+                            <c:choose>
+                                        <c:when test="${requestScope.noEdit == 1}">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="Cell Head" style="width: 10%;">
+                                                <form action="./enviarSalAlm" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Enviar</a>
+                                                </form>
+                                                <form action="./cancelSalAlm" method="POST">
+                                                    <input type="hidden" name="id" value="${i.id}"/>
+                                                    <a href="javascript:" onclick="parentNode.submit();">Cancelar</a>
+                                                </form>
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>                               
+                           </c:forEach> 
                     </c:if>
                 </div>
             </div>

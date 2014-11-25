@@ -1,11 +1,13 @@
-
+import com.model.Cliente;
+import com.model.Producto;
+import com.model.Categoria;
+import com.model.Usuario;
+import com.model.UsuarioAdministrador;
 import com.model.UsuarioAlmacen;
 import com.model.UsuarioAprobador;
 import com.model.UsuarioCapturista;
-import com.model.UsuarioAdministrador;
-import com.model.Usuario;
 import com.model.UsuarioVentas;
-import com.model.Cliente;
+import com.model.Venta;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -73,11 +75,11 @@ public class Login extends HttpServlet {
                             Cliente cliente=new Cliente(result.getInt("id"),result.getString("nombre"),result.getString("logo"));
                             
                             if(tipo==3){
-                                usr=new UsuarioAprobador(id,name,apellido,tipo,cliente);
-                                UsuarioAprobador.interfaz(request);
-                            }else{
                                 usr=new UsuarioCapturista(id,name,apellido,tipo,cliente);
                                 UsuarioCapturista.interfaz(request);
+                            }else{
+                                usr=new UsuarioAprobador(id,name,apellido,tipo,cliente);
+                                UsuarioAprobador.interfaz(request);
                             }
                             
                             session.setAttribute("cliente", cliente);

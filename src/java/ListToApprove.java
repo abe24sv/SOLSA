@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-public class ListSalApro extends HttpServlet {
+public class ListToApprove extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,21 +38,23 @@ public class ListSalApro extends HttpServlet {
         String notify="",url="/index.jsp";
         
         DBConnection aux=new DBConnection(getServletContext().getInitParameter("bdAdm").split("/"),getServletContext().getInitParameter("bdHost"),getServletContext().getInitParameter("bdNom"));
-        
+
         Connection con=aux.connect();
         
         if(con!=null){
             
             try{
-                PreparedStatement query=con.prepareStatement("SELECT * FROM venta");
+                PreparedStatement query=con.prepareStatement("SELECT * FROM compra");
                 LinkedList<Integer> compras = new LinkedList<Integer>();
                 LinkedList<Producto> productos = new LinkedList<Producto>();
                 HashMap<Integer,LinkedList<Producto>> compraProducto = new HashMap<Integer,LinkedList<Producto>>();
                 HttpSession session=request.getSession();
-                LinkedList<Venta> ventas = new LinkedList<Venta>();
+                Usuario user = (UsuarioAprobador)session.getAttribute("user");
+                LinkedList<Compra> listaCompras = new LinkedList<Compra>();
                 ResultSet result=query.executeQuery();
+                int id = user.getid();
                 while(result.next()){
-                     compras.add(result.getInt("venta.id_compra"));
+                     compras.add(result.getInt("compra.id"));
                 }
                 query.close();  
                 for(int i : compras){
@@ -66,11 +68,11 @@ public class ListSalApro extends HttpServlet {
                     productos=new LinkedList<Producto>();
                     query2.close();
                 }
-               PreparedStatement query3=con.prepareStatement("SELECT * FROM (((venta JOIN compra ON venta.id_compra = compra.id) JOIN cliente ON compra.id_cliente = cliente.id) JOIN usuario ON compra.id_usuario = usuario.id),usuario AS vendedor WHERE venta.id_usuario = vendedor.id AND (compra.estado = 1 OR compra.estado = 3 OR compra.estado > 4);");
+               PreparedStatement query3=con.prepareStatement("SELECT * FROM (compra JOIN cliente ON compra.id_cliente = cliente.id) JOIN usuario ON compra.id_usuario = usuario.id WHERE compra.id_usuario = ? AND compra.estado = 0;");
+               query3.setInt(1, id);
                result=query3.executeQuery();
                while(result.next()){
                    Usuario comprador;
-                   Usuario vendedor;
                    Cliente cliente = new Cliente(result.getInt("cliente.id"),result.getString("cliente.nombre"),result.getString("cliente.logo"));
                    switch(result.getInt("usuario.tipo")){
                        case 0:
@@ -92,35 +94,14 @@ public class ListSalApro extends HttpServlet {
                             
                             break;
                    }
-                   switch(result.getInt("vendedor.tipo")){
-                       case 0:
-                           vendedor = new UsuarioAdministrador(result.getInt("vendedor.id"),result.getString("vendedor.nombre"),result.getString("vendedor.apellido"),result.getInt("vendedor.tipo"));
-                           break;
-                        case 1:
-                           vendedor = new UsuarioVentas(result.getInt("vendedor.id"),result.getString("vendedor.nombre"),result.getString("vendedor.apellido"),result.getInt("vendedor.tipo"));
-                           break;
-                        case 2:
-                           vendedor = new UsuarioAlmacen(result.getInt("vendedor.id"),result.getString("vendedor.nombre"),result.getString("vendedor.apellido"),result.getInt("vendedor.tipo"));
-                           break;
-                        case 3:
-                           vendedor = new UsuarioCapturista(result.getInt("vendedor.id"),result.getString("vendedor.nombre"),result.getString("vendedor.apellido"),result.getInt("vendedor.tipo"),cliente);
-                           break;
-                        case 4:
-                            vendedor = new UsuarioAprobador(result.getInt("vendedor.id"),result.getString("vendedor.nombre"),result.getString("vendedor.apellido"),result.getInt("vendedor.tipo"),cliente);
-                            break;
-                        default:
-                            vendedor = new UsuarioCapturista(result.getInt("usuario.id"),result.getString("usuario.nombre"),result.getString("usuario.apellido"),result.getInt("usuario.tipo"),cliente);
-                            break;
-                   }
-                     ventas.add(new Venta(result.getInt("venta.id_compra"),result.getInt("compra.estado"),result.getString("compra.fecha_inicio"),result.getString("compra.fecha_entrega"),compraProducto.get(result.getInt("venta.id_compra")),cliente,comprador,vendedor));
+                     listaCompras.add(new Compra(result.getInt("compra.id"),result.getInt("compra.estado"),result.getString("compra.fecha_inicio"),result.getString("compra.fecha_entrega"),compraProducto.get(result.getInt("compra.id")),cliente,comprador));
                 }
                query3.close();
                url="/main.jsp";  
                 
                 aux.disconnect();
-                request.setAttribute("realizoConsulta",1);
-                request.setAttribute("listaVentas", ventas);
-                request.setAttribute("noEdit", 1);
+                request.setAttribute("verComprasApro",1);
+                request.setAttribute("comprasAprobador", listaCompras);
             }catch(SQLException e){
                 e.printStackTrace();
             }

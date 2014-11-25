@@ -1,6 +1,7 @@
-import com.model.Cliente;
-import com.model.Producto;
 import com.model.Categoria;
+import com.model.Cliente;
+import com.model.Compra;
+import com.model.Producto;
 import com.model.Usuario;
 import com.model.UsuarioAdministrador;
 import com.model.UsuarioAlmacen;

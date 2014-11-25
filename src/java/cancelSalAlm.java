@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.io.IOException;
 import java.util.*;
@@ -19,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-public class cancelSal extends HttpServlet {
+public class cancelSalAlm extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +37,7 @@ public class cancelSal extends HttpServlet {
                 PreparedStatement query=con.prepareStatement("UPDATE compra SET estado=4 WHERE id = ?");
                 query.setInt(1, id);
                 query.executeUpdate();
-               url="/ListSalAll";  
+               url="/ListOrdDate";  
                 
                 aux.disconnect();
             }catch(SQLException e){
