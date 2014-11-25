@@ -91,7 +91,7 @@ public class Cliente {
         return listatitu;
     }
     
-    public  LinkedList<ListaTitulada> buscarUsuarios(String busca,String limit,Connection con)throws SQLException{
+    public LinkedList<ListaTitulada> buscarUsuarios(String busca,String limit,Connection con)throws SQLException{
         PreparedStatement query=con.prepareStatement("SELECT id,nombre,apellido,tipo FROM usuario,usuario_ext WHERE usuario.id=usuario_ext.id_usuario AND tipo=3 AND id_cliente= ? AND (usuario.id LIKE ?  OR usuario.nombre LIKE ? OR usuario.apellido LIKE ? );");
         query.setString(1, this.id+"");
         query.setString(2, "%"+busca+"%");
