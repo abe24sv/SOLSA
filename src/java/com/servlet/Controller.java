@@ -42,7 +42,7 @@ public class Controller extends HttpServlet {
             String description = request.getParameter("description");
             Producto producto = dao.getProductById(name,description);
             request.setAttribute("producto", producto);
-        } else if (action.equalsIgnoreCase("listProduct")){
+        } else if (action.equalsIgnoreCase("ListProducts")){
             forward = LIST_USER;
             request.setAttribute("productos", dao.getAllProducts());
         } else {
