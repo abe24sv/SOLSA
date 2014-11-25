@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 public class Producto {
     private int id,cantidad;
     private Categoria id_categoria, id_subcategoria;
-    private String nombre, marca, descripcion,imagen,precio;
+    private String nombre, marca, descripcion,imagen,cat,subcat,precio;
+    public Producto(){
     
+    }
     public Producto(int id,Categoria id_categoria,Categoria id_subcategoria,String nombre, String marca, String descripcion,String imagen,int cantidad){
         this.id=id;
         this.id_categoria=id_categoria;
@@ -19,11 +21,32 @@ public class Producto {
         this.imagen=imagen;
         this.cantidad=cantidad;
     }
-
-    public Producto() {
-        
+    public Producto(int id,Categoria id_categoria,Categoria id_subcategoria,String nombre, String marca, String descripcion,String imagen,int cantidad, String cat, String subcat){
+        this.id=id;
+        this.id_categoria=id_categoria;
+        this.id_subcategoria=id_subcategoria;
+        this.nombre=nombre;
+        this.marca=marca;
+        this.descripcion=descripcion;
+        this.imagen=imagen;
+        this.cantidad=cantidad;
+        this.cat = cat;
+        this.subcat = subcat;
     }
-    public Producto(int id,Categoria id_categoria,Categoria id_subcategoria,String nombre, String marca, String descripcion,String imagen,int cantidad,String precio){
+    public Producto(int id,Categoria id_categoria,Categoria id_subcategoria,String nombre, String marca, String descripcion,String imagen,int cantidad, String cat, String subcat,String precio){
+        this.id=id;
+        this.id_categoria=id_categoria;
+        this.id_subcategoria=id_subcategoria;
+        this.nombre=nombre;
+        this.marca=marca;
+        this.descripcion=descripcion;
+        this.imagen=imagen;
+        this.cantidad=cantidad;
+        this.cat = cat;
+        this.subcat = subcat;
+        this.precio=precio;
+    }
+    public Producto(int id,Categoria id_categoria,Categoria id_subcategoria,String nombre, String marca, String descripcion,String imagen,int cantidad, String precio){
         this.id=id;
         this.id_categoria=id_categoria;
         this.id_subcategoria=id_subcategoria;
@@ -34,7 +57,18 @@ public class Producto {
         this.cantidad=cantidad;
         this.precio=precio;
     }
-    
+    public String getCat() {
+        return cat;
+    }
+    public void setCat(String cat) {
+        this.cat = cat;
+    }
+    public String getSubcat() {
+        return subcat;
+    }
+    public void setSubcat(String subcat) {
+        this.subcat = subcat;
+    }
     public void setid(int id){
         this.id=id;
     }
@@ -59,10 +93,6 @@ public class Producto {
     public void setcantidad(int cantidad){
         this.cantidad=cantidad;
     }
-    public void setprecio(String precio){
-        this.precio=precio;
-    }
-    
     public int getid(){
         return id;
     }
@@ -86,6 +116,10 @@ public class Producto {
     }
     public int getcantidad(){
         return cantidad;
+    }
+
+    public void setprecio(String precio){
+        this.precio=precio;
     }
     public String getprecio(){
         return precio;
