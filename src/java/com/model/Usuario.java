@@ -1,7 +1,12 @@
 package com.model;
 
+import Interfaz.ListaTitulada;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
 
 public class Usuario {
     protected int id,tipo;
