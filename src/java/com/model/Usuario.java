@@ -3,7 +3,7 @@ package com.model;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.ResultSet;
 
-public abstract class Usuario {
+public class Usuario {
     protected int id,tipo;
     protected String nombre,apellido;
 
